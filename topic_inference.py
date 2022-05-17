@@ -24,7 +24,7 @@ class TopicsModel:
     def __load_override_list(override_file_path):
         ptol = page_topics_override_list_pb2.PageTopicsOverrideList()
 
-        with open('../topic_model/override_list.pb', 'rb') as f:
+        with open(override_file_path, 'rb') as f:
             data = f.read()
         ptol.ParseFromString(data)
 
@@ -219,7 +219,7 @@ if __name__ == '__main__':
     vocab_file_path = 'resources//vocab.txt'
     labelmap_file_path = 'resources/final_chrome_labelmap.txt'
     taxonomy_file_path = 'resources/taxonomy_v1.csv'
-    override_file_path = 'resources/topic_model/override_list.pb'
+    override_file_path = 'resources/topics_model/override_list.pb'
 
     # parameters that appear to produce the same results as Chrome Canary
     model_metadata = PageTopicModelMetadata(max_categories=5,
